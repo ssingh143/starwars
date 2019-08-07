@@ -3,10 +3,10 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { debounce } from "throttle-debounce";
 
+import { searchConstants as CONFIG } from "../../constants";
 import { searchAction } from "../../actions";
 import LoadingSpinner from "../common/loader";
 import SearchResult from "./SearchResult";
-import { searchConstants as CONFIG } from "../../constants";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -21,10 +21,9 @@ class SearchBar extends React.Component {
     this.sessionTime = null;
   }
 
-  searchPlanet = q => {
+  searchPlanet = () => {
     const { query } = this.state;
-    const hasQ = q ? q : query;
-    this.props.search(hasQ);
+    this.props.search(query);
   };
 
   onChange = isSearchQuery => {
@@ -70,7 +69,15 @@ class SearchBar extends React.Component {
           }
         } else {
           if (isSearchQuery) {
-            this.searchPlanet("noresult");
+            this.setState(
+              {
+                ...this.state,
+                query: "noresult"
+              },
+              () => {
+                this.searchPlanet();
+              }
+            );
           }
         }
       }
@@ -79,8 +86,7 @@ class SearchBar extends React.Component {
 
   onKeyDown = e => {
     const key = e.keyCode || e.charCode;
-    console.log(this.state.query);
-    if (key === 8 || (key === 46 && this.state.query.length === 0)) {
+    if (key === 8 || (key === 46 && this.state.query.length < 2)) {
       this.onChange(true);
     } else {
       return false;

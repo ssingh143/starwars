@@ -7,7 +7,7 @@ const search = query => {
     searchServices.searchPlanet(query).then(result => {
       if (result === 404) {
         dispatch(failure(query, searchConstants.SEAERCHNOTFOUND, false));
-      } else if (result === 401) {
+      } else if (result === 'noresult') {
         dispatch(resetResult(query, result, false));
       } else {
         if (result === 503) {
