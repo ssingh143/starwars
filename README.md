@@ -14,7 +14,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Test cases i have not coverd 
+Test cases not coverd 
 
 ### Done by
 
