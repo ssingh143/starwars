@@ -1,0 +1,156 @@
+body,
+.jumbotron {
+    background-color: #f1f1f1;
+}
+
+.login-container {
+    border-bottom: 10px solid #524e4e;
+    background: #fff;
+    width: 350px;
+    box-shadow: 0px -12px 14px #adabab;
+    padding-top: 20px;
+    background-color: #e9ecef;
+    padding-bottom: 14px;
+}
+
+.login-container h2 {
+    font-size: 28px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #313131;
+}
+
+.red {
+    color: #dc3545;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.login-container h2>span {
+    color: #dc3545;
+    font-size: 80px;
+    display: block;
+}
+
+.has-error .help-block {
+    color: #dc3545;
+    font-size: 13px;
+}
+
+.has-error input[type="text"],
+.has-error input[type="password"] {
+    border-color: #dc3545;
+}
+
+label {
+    line-height: 8px;
+}
+
+.alert-container {
+    padding: 0;
+    min-height: 50px;
+}
+
+.btn-primary-login {
+    background-color: #dc3545;
+    width: 100%;
+    border: 1px salmon solid;
+    color: #fff;
+}
+
+.btn-primary-login:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.logout {
+    color: #fff;
+    background: transparent;
+    border: 0;
+}
+
+.pageNotFound .back-404 {
+    font-size: 80px;
+}
+
+.pageNotFound h2 {
+    font-size: 70px;
+}
+
+.pageNotFound {
+    margin-top: 200px
+}
+
+.pageNotFound .backToLoginPage {
+    font-size: 20px;
+    display: inline-block;
+    background: #dc3545;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 4px;
+}
+
+.pageNotFound .backToLoginPage:hover {
+    background-color: #313131;
+    text-decoration: none;
+}
+
+
+/*=======search bar=========*/
+.searchBar {
+    margin-top: 20px;
+}
+
+.search-result .card-body {
+    padding: 0px 8px 8px;
+}
+
+.search-result .list-group-item {
+    color: #444;
+}
+
+.search-result .card {
+    border-radius: 0;
+    box-shadow: 1px 1px 2px #444;
+    margin-bottom: 4px;
+    box-sizing: content-box;
+}
+
+.searchBar .search-label {
+    position: relative;
+}
+
+.searchBar input {
+    width: 100%;
+    padding: 8px;
+    font-size: 26px;
+    color: #000;
+    box-sizing: border-box;
+    outline: none;
+    box-shadow: 2px 3px 5px #444;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0 solid #524e4e;
+}
+
+.search-icon {
+    position: absolute;
+    top: 9px;
+    font-size: 24px;
+    color: #555;
+    right: 18px;
+}
+
+.search-label {
+    display: block;
+}
+
+.card-header {
+    padding: 4px 12px 0;
+}
+
+.searchMessage h2{
+    padding-left: 0;
+}
