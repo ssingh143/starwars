@@ -7,6 +7,8 @@ const search = query => {
     searchServices.searchPlanet(query).then(result => {
       if (result === 404) {
         dispatch(failure(query, searchConstants.SEAERCHNOTFOUND, false));
+      } else if (result === 401) {
+        dispatch(resetResult(query, result, false));
       } else {
         if (result === 503) {
           dispatch(failure(query, searchConstants.NETWORKERROR, false));
@@ -22,6 +24,9 @@ const search = query => {
   }
   function success(query, data, isLoading) {
     return { type: searchConstants.SEARCHSUCCESS, query, data, isLoading };
+  }
+  function resetResult(query, message, isLoading) {
+    return { type: searchConstants.SEARCHRESET, query, message, isLoading };
   }
   function failure(query, message, isLoading) {
     return { type: searchConstants.SEARCHFAILURE, query, message, isLoading };

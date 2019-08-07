@@ -21,6 +21,12 @@ export function search(state = initialState, action) {
         error: action.message,
         isLoading: action.isLoading
       };
+    case searchConstants.SEARCHRESET:
+      return {
+        query: action.query,
+        results: {},
+        isLoading: action.isLoading
+      };
     default:
       return state;
   }

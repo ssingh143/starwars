@@ -21,21 +21,19 @@ class SearchBar extends React.Component {
     this.sessionTime = null;
   }
 
-  searchPlanet = () => {
+  searchPlanet = q => {
     const { query } = this.state;
-    this.props.search(query);
+    const hasQ = q ? q : query;
+    this.props.search(hasQ);
   };
 
-  onChange = (isSearchQuery, q) => {
+  onChange = isSearchQuery => {
     this.setState(
       {
-        query: q ? q : this.search.value
+        query: this.search.value
       },
       () => {
-        if (
-          (this.state.query && this.state.query.length > 1) ||
-          isSearchQuery
-        ) {
+        if (this.state.query && this.state.query.length > 1) {
           if (this.state.query.length % 2 === 0) {
             if (this.props.fullName === CONFIG.SPECIFICUSER) {
               let currentTime = new Date();
@@ -71,6 +69,9 @@ class SearchBar extends React.Component {
             }
           }
         } else {
+          if (isSearchQuery) {
+            this.searchPlanet("noresult");
+          }
         }
       }
     );
@@ -80,7 +81,7 @@ class SearchBar extends React.Component {
     const key = e.keyCode || e.charCode;
     console.log(this.state.query);
     if (key === 8 || (key === 46 && this.state.query.length === 0)) {
-      this.onChange(true, "noresult");
+      this.onChange(true);
     } else {
       return false;
     }

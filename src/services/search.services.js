@@ -2,6 +2,9 @@ import { searchPlanets } from "../apis/searchAPI";
 
 const searchPlanet = async term => {
   try {
+    if (term === "noresult") {
+      return 401;
+    }
     const response = await searchPlanets.get(`?search=${term}`);
     let data = response.data.results;
     if (response.data.count !== 0) {
