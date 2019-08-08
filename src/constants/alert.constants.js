@@ -4,7 +4,7 @@ export const alertConstants = {
   CLEAR: "ALERT_CLEAR",
   USERSTORAGE: "STARWARUSER",
   USERINVALID: "Username or password is incorrect",
-  NETWORKERROR: "Newwork error!",
+  NETWORKERROR: "Network error!",
   BASEFONT: 20,
   LOGINBASEURL: "https://swapi.co/api/people"
 };

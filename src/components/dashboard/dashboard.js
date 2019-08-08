@@ -1,11 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 
 import { userActions } from "../../actions";
 import { SearchBar } from "../search/SearchBar";
 
-class Dashboard extends React.Component {
+class Dashboard extends Component {
   componentDidMount() {
     this.props.getUser();
   }

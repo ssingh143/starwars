@@ -15,7 +15,7 @@ export function alert(state = {}, action) {
       };
     case alertConstants.CLEAR:
       return {
-        submit: true
+        submit: false
       };
     default:
       return state;

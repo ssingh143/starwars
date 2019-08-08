@@ -8,5 +8,8 @@ export const userConstants = {
 
   GETUSER_REQUEST: "USER_DETAILS_REQUEST",
   GETUSER_SUCCESS: "USER_DETAILS_SUCCESS",
-  GETUSER_FAILURE: "USER_DETAILS_FAILURE"
+  GETUSER_FAILURE: "USER_DETAILS_FAILURE",
+
+  INVALID_USER: "Please enter valid user name",
+  INVALID_PASS: "Please enter valid password"
 };

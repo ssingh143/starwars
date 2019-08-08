@@ -3,8 +3,8 @@ import { Router, Route, Switch } from "react-router-dom";
 
 import { history } from "../helpers";
 import PrivateRoute from "./privateRoute";
-import LoginPage from "../components/login/loginPage";
-import { Dashboard } from "../components/dashboard/dashboard";
+import LoginPage from "../components/login/LoginPage";
+import { Dashboard } from "../components/dashboard/Dashboard";
 import PageNotFound from "../components/common/PageNotFound";
 
 import "../style/App.css";

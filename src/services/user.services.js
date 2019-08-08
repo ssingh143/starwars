@@ -25,7 +25,7 @@ const login = async (username, password) => {
     }
     return userData;
   } catch (err) {
-    return 503;
+    return 404;
   }
 };
 

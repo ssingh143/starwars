@@ -1,14 +1,14 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { debounce } from "throttle-debounce";
 
 import { searchConstants as CONFIG } from "../../constants";
 import { searchAction } from "../../actions";
-import LoadingSpinner from "../common/loader";
+import LoadingSpinner from "../common/Loader";
 import SearchResult from "./SearchResult";
 
-class SearchBar extends React.Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {

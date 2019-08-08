@@ -4,8 +4,9 @@ import { PropTypes } from "prop-types";
 import { Redirect } from "react-router-dom";
 
 import { userActions } from "../../actions";
+import { userConstants as CONFIG } from "../../constants";
 import TextFieldGroup from "../common/TextFieldGroup";
-import LoadingSpinner from "../common/loader";
+import LoadingSpinner from "../common/Loader";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -35,12 +36,12 @@ class LoginForm extends React.Component {
 
     if (this.state.username.length < 2) {
       isError = true;
-      errors.usernameError = "Please enter valid user name";
+      errors.usernameError = CONFIG.INVALID_USER;
     }
 
     if (this.state.password.length < 2) {
       isError = true;
-      errors.passwordError = "Please enter valid password";
+      errors.passwordError = CONFIG.INVALID_PASS;
     }
 
     this.setState({
@@ -77,12 +78,6 @@ class LoginForm extends React.Component {
     const { alert, submitted } = this.props;
     return (
       <React.Fragment>
-        <h2>
-          <span>
-            <i className="fa fa-rebel" />
-          </span>
-          Login
-        </h2>
         <form onSubmit={this.onSubmit}>
           <div className="alert-container">
             {alert && alert.message && (
@@ -93,6 +88,7 @@ class LoginForm extends React.Component {
             field="username"
             label="Username"
             id="username"
+            name="unsername"
             value={username}
             error={usernameError}
             onChange={this.onChange}
@@ -110,7 +106,11 @@ class LoginForm extends React.Component {
 
           <div className="form-group">
             <button className="btn btn-primary-login" disabled={submitted}>
-              {submitted ? <LoadingSpinner message={"Submitting..."} /> : "Login"}
+              {submitted ? (
+                <LoadingSpinner message={"Submitting..."} />
+              ) : (
+                "Login"
+              )}
             </button>
           </div>
         </form>

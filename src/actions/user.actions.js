@@ -13,14 +13,8 @@ const login = (username, password) => {
         dispatch(alertActions.error(alertConstants.USERINVALID));
         dispatch(formActions.submit(false));
       } else {
-        if (user === 503) {
-          dispatch(failure(userConstants.NETWORKERROR));
-          dispatch(alertActions.error(userConstants.NETWORKERROR));
-          dispatch(formActions.submit(false));
-        } else {
-          dispatch(success(user));
-          dispatch(formActions.submit(false));
-        }
+        dispatch(success(user));
+        dispatch(formActions.submit(false));
       }
     });
   };
@@ -52,7 +46,7 @@ const getUser = () => {
   return dispatch => {
     dispatch(request());
     userService.getUser().then(
-      (user) => {
+      user => {
         dispatch(success(user));
       },
       error => dispatch(failure(error))
