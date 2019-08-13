@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 
 import { userActions } from "../../actions";
-import { SearchBar } from "../search/SearchBar";
+import SearchBar from "../search/SearchBar";
 
-class Dashboard extends Component {
+export class Dashboard extends Component {
   componentDidMount() {
     this.props.getUser();
   }
@@ -54,9 +54,7 @@ const mapDispatchToProps = {
   getUser: userActions.getUser
 };
 
-const connectedDashboardPage = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Dashboard);
-
-export { connectedDashboardPage as Dashboard };

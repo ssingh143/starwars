@@ -11,9 +11,10 @@ const login = async (username, password) => {
       if (username === name && password === birth_year) {
         let userFullName = name.split(" ");
         userData = {
-          fullName: name,
+          userFullName: name,
           firstName: userFullName[0],
-          lastName: userFullName[userFullName.length - 1]
+          lastName: userFullName[userFullName.length - 1],
+          birthYear: birth_year
         };
         localStorage.setItem(SAVEKEY.USERSTORAGE, JSON.stringify(userData));
         history.push("/");

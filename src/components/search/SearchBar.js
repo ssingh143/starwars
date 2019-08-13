@@ -8,7 +8,7 @@ import { searchAction } from "../../actions";
 import LoadingSpinner from "../common/Loader";
 import SearchResult from "./SearchResult";
 
-class SearchBar extends Component {
+export class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,12 +29,12 @@ class SearchBar extends Component {
   onChange = isSearchQuery => {
     this.setState(
       {
-        query: this.search.value
+        query: this.refSearch.value
       },
       () => {
         if (this.state.query && this.state.query.length > 1) {
           if (this.state.query.length % 2 === 0) {
-            if (this.props.fullName === CONFIG.SPECIFICUSER) {
+            if (this.props.userFullName === CONFIG.SPECIFICUSER) {
               let currentTime = new Date();
               if (!this.state.session) {
                 this.sessionTime = new Date(currentTime);
@@ -104,7 +104,7 @@ class SearchBar extends Component {
               name="query"
               id="search-input"
               placeholder="Search planets..."
-              ref={input => (this.search = input)}
+              ref={input => (this.refSearch = input)}
               onChange={this.onChange}
               onKeyDown={this.onKeyDown}
             />
@@ -133,16 +133,15 @@ SearchBar.propTypes = {
 
 const mapStateToProps = state => {
   const { query, results, error, isLoading } = state.search;
-  const { fullName } = state.auth.user;
-  return { query, results, error, isLoading, fullName };
+  const { userFullName } = state.auth.user;
+  return { query, results, error, isLoading, userFullName };
 };
 
 const dispatchStateToProps = {
   search: searchAction.search
 };
 
-const connectedSearchBar = connect(
+export default connect(
   mapStateToProps,
   dispatchStateToProps
 )(SearchBar);
-export { connectedSearchBar as SearchBar };

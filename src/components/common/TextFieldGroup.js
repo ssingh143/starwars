@@ -10,6 +10,7 @@ const TextFieldGroup = ({
   type,
   onChange,
   id,
+  cssClass,
   checkUserExists
 }) => {
   return (
@@ -24,7 +25,7 @@ const TextFieldGroup = ({
         type={type}
         name={field}
         id={id}
-        className="form-control"
+        className={classnames("form-control", cssClass)}
       />
       {error && <span className="help-block">{error}</span>}
     </div>
@@ -37,6 +38,7 @@ TextFieldGroup.propTypes = {
   label: PropTypes.string,
   error: PropTypes.string,
   type: PropTypes.string,
+  cssClass: PropTypes.string,
   onChange: PropTypes.func,
   checkUserExists: PropTypes.func
 };

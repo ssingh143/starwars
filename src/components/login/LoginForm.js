@@ -8,7 +8,7 @@ import { userConstants as CONFIG } from "../../constants";
 import TextFieldGroup from "../common/TextFieldGroup";
 import LoadingSpinner from "../common/Loader";
 
-class LoginForm extends React.Component {
+export class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ class LoginForm extends React.Component {
 
   componentDidMount() {
     this.props.isUserLoggedIn();
-    if (this.props.loggingIn) {
+    if (this.props.loggedIn) {
       return <Redirect to="/" />;
     }
   }
@@ -88,6 +88,7 @@ class LoginForm extends React.Component {
             field="username"
             label="Username"
             id="username"
+            cssClass="username"
             name="unsername"
             value={username}
             error={usernameError}
@@ -123,16 +124,16 @@ LoginForm.propTypes = {
   login: PropTypes.func,
   isUserLoggedIn: PropTypes.func,
   formSubmit: PropTypes.func,
-  loggingIn: PropTypes.bool,
+  loggedIn: PropTypes.bool,
   alert: PropTypes.object,
   submitted: PropTypes.bool
 };
 
 const mapStateToProps = state => {
-  const { loggingIn } = state.auth;
+  const { loggedIn } = state.auth;
   const { alert } = state;
   const { submitted } = state.form;
-  return { loggingIn, alert, submitted };
+  return { loggedIn, alert, submitted };
 };
 
 const dispatchStateToProps = {
@@ -141,8 +142,8 @@ const dispatchStateToProps = {
   formSubmit: userActions.loadUser
 };
 
-const connectedLoginPage = connect(
+export default connect(
   mapStateToProps,
   dispatchStateToProps
 )(LoginForm);
-export { connectedLoginPage as LoginForm };
+

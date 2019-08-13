@@ -7,7 +7,7 @@ const login = (username, password) => {
   return dispatch => {
     dispatch(request({ username }));
     dispatch(formActions.submit(true));
-    userService.login(username, password).then(user => {
+    return userService.login(username, password).then(user => {
       if (user === 404) {
         dispatch(failure(alertConstants.USERINVALID));
         dispatch(alertActions.error(alertConstants.USERINVALID));
