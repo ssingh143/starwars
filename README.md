@@ -14,7 +14,7 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
-Test cases not coverd 
+Test cases covered functional/action/reducer
 
 ### Done by
 
